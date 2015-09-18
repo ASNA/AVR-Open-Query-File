@@ -1,0 +1,60 @@
+﻿Using System
+Using System.Collections
+Using System.Text
+
+BegClass Program
+
+	BegSr Main Shared(*Yes) Access(*Public) Attributes(System.STAThread())
+		DclSrParm args Type(*String) Rank(1)
+
+        (*New Test()).Run()
+
+        Console.WriteLine("Press any key to continue...")
+        Console.ReadKey()
+	EndSr
+
+EndClass
+
+
+BegClass Test
+
+    DclDB pgmDB DBName( "*Public/Cypress" )
+
+    DclDiskFile  Cust +
+        Type( *Input) +
+        Org( *Indexed) +
+        Prefix( Cust_) +
+        File( "Examples/CMastNewL1") +
+        DB( pgmDB) +
+        ImpOpen( *No )
+
+
+    BegSr Run Access(*Public)        
+        DclFld QueryMask  Type(*String) 
+        DclFld QueryValue Type(*String) 
+        DclFld Query      Type(*String) 
+
+        Connect pgmDB 
+
+//        Cust.QryKeyFlds = "CMName *ASCEND CMCustNo *ASCEND"
+        Cust.QryKeyFlds = "CMCustNo *ASCEND"
+        QueryValue = "CANADA"
+        
+        QueryMask = "%XLATE(CMNAME qsystrntbl) *CT '{0}'"
+        Query = String.Format(QueryMask, QueryValue)         
+
+        Cust.QrySelect = Query
+
+        Open Cust 
+
+        Read Cust 
+        DoWhile NOT Cust.IsEof
+            Console.WriteLine(Cust_CMName)
+
+            Read Cust 
+        EndDo 
+
+        Close *All
+        Disconnect pgmDB         
+    EndSr
+EndClass

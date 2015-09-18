@@ -1,0 +1,5 @@
+C:\Users\roger\Documents\Programming\CS\Other\OpenQuery\OpenQuery\bin\Debug\OpenQuery.exe
+C:\Users\roger\Documents\Programming\CS\Other\OpenQuery\OpenQuery\obj\Debug\OpenQuery.vrprojResolveAssemblyReference.cache
+C:\Users\roger\Documents\Programming\CS\Other\OpenQuery\OpenQuery\bin\Debug\OpenQuery.pdb
+C:\Users\roger\Documents\Programming\CS\Other\OpenQuery\OpenQuery\obj\Debug\OpenQuery.exe
+C:\Users\roger\Documents\Programming\CS\Other\OpenQuery\OpenQuery\obj\Debug\OpenQuery.pdb
